@@ -11,7 +11,8 @@ sigma = 03.1821422
 sims_df = pd.DataFrame()
 
 #generates 1000 simulations
-for i in range(1000):
+num_sims = 1000
+for i in range(num_sims):
     #list with initial stock price (current trading price)
     vals = [54.87]
     for x in range(260): #loop runs 260 times to forecast 5 years into the future, on a weekly basis
@@ -23,11 +24,11 @@ for i in range(1000):
 
 #runs through the simulated values to see if, in the forecast, the target price is met or exceeded
 count = 0
-for i in range(1000):
+for i in range(num_sims):
     for k in range(260):
         if sims_df['Sim' + str(i+1)][k] >= 61.59:
             count += 1
             break
 
 #print proportion of simulations in which target price is met or exceeded
-print(count/1000)
+print(count/num_sims)
