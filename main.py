@@ -14,7 +14,7 @@ sims_df = pd.DataFrame()
 for i in range(1000):
     #list with initial stock price (current trading price)
     vals = [54.87]
-    for x in range(260):
+    for x in range(260): #loop runs 260 times to forecast 5 years into the future, on a weekly basis
         #appends new values to list of vals using normally distributed stochastic growth based on
         #historical growth data
         vals.append(vals[x-1]*(1 + 0.01*np.random.normal(mu, sigma)))
